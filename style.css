@@ -1,0 +1,604 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    width: 100%;
+    
+    background: linear-gradient(90deg, rgba(42, 83, 83, 0.795), rgb(199, 236, 236), rgb(199, 236, 236), rgb(199, 236, 236), rgb(199, 236, 236),rgba(42, 83, 83, 0.795));
+    /* background-color: rgb(199, 236, 236);     */
+    color:  rgba(55, 65, 65, 0.582);
+    /* background-color:rgb(243, 169, 169); */
+    /* overflow-y: unset; */
+
+}
+
+.homePage{    
+    width: 100%;
+    padding-top:6vh;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeIntro{
+    width: 100%;
+    height: 14vh;
+    text-align: center; 
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeBooks{
+    width: 100%;
+    height: auto;
+    padding: 1vh 2vw 1vh 2vw;
+
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+.homeBook{  
+    background-color:transparent; 
+    width: 12vw;
+    height: auto;
+    margin:5px;
+    
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeBook img{
+    width: 100%;
+    height: auto;
+    border-radius: 1vh;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 10px 20px rgba(0,0,0,0.23);
+}
+
+.homePar{
+    width: 98vw;
+    padding: 1vh 2vw 1vh 2vw;
+    text-align: center;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homePar p{
+    text-align: center;
+}
+
+/* Product Page*/
+
+.productPage{
+    width: 100%;
+    padding-top:6vh;
+    height: 100%;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productsIntro{
+    width: 100%;
+    height: 12vh;
+    text-align: center; 
+    color:  rgba(55, 65, 65, 0.582);
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productsBooks{
+    width: 100%;
+    height: auto;
+    padding: 1vh 2vw 1vh 2vw;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cartBook{
+    background-color: white;
+    width: 72vw;
+    height: auto;
+    margin: 2vw;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;    
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 10px 20px rgba(0,0,0,0.23);
+
+}
+.cartBook img{
+    width: 19vw;
+    margin: 0%;
+    padding: 1vh;
+    border-radius: 12px;
+}
+
+.cartBookText{
+    padding: 1vh;
+    text-align: center;
+}
+
+.addToCart{
+    border: none;
+    outline: none;
+    padding: 1vh;
+    margin-left: 2vh;
+    border-radius: 15px;
+
+    font-size: 2vh;
+    font-style: italic;
+    background:rgb(199, 236, 236)!important;
+    color: white!important;
+}
+
+.addToCart:hover{
+    background: rgb(242, 71, 57)!important;
+}
+
+.addToCart:active{
+    background: white!important;
+    color: rgb(242, 71, 57)!important;
+}
+
+/* About page */
+
+
+.aboutPage{
+    
+    width: 100%;
+    padding-top:6vh;
+    height: 100%;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutIntro{
+    width: 100%;
+    height: 12vh;
+    text-align: center; 
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutUs{
+    width: 100%;
+    height: auto;
+    text-align: center; 
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-bg-img{
+    height: 60vh;
+    border: none;
+    outline: none;
+    opacity: 0.7;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 10px 20px rgba(0,0,0,0.23);
+    background-image: url(images/about.jpg);
+    font-size: 40px;
+    /* font-weight: bold; */
+    padding: 5px;
+    
+    
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+    /* color: rgb(199, 236, 236, 0.9); */
+    color: rgba(255, 255, 255, 0.9);
+    
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-bg-img p{
+    font-family: 'Yeseva One', cursive;
+}
+
+
+
+.aboutText{
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+#contactPage{
+    
+    width: 100%;
+    padding-top:6vh;
+    
+    padding-bottom:4vh;
+    /* margin-bottom: 4vh; */
+    height: 100%;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+/* Contact form */
+
+.container{
+    margin-top: 4vh;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 10px 20px rgba(0,0,0,0.23);
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 1vh; /* Some padding */ 
+    border: 0px solid #ccc; /* Gray border */
+    outline: 0px;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background:rgb(199, 236, 236)!important;
+    color: white!important;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border:none;
+    outline: none;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background: rgb(242, 71, 57)!important;
+  }
+
+  input[type=submit]:active {
+    background: white!important;
+    color: rgb(242, 71, 57)!important;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: rgb(242, 71, 57)!important; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 10px 20px rgba(0,0,0,0.23);
+    opacity: 0.5;
+  }
+  
+  #myBtn:active {
+    background-color: white!important; /* Add a dark-grey background on hover */
+    color: rgb(242, 71, 57)!important;
+  }
+
+
+  /*-------------CART-------------*/
+
+.overlay {
+    margin-top: 6vh;
+    height: 0%;
+    width:100%;
+    position: fixed;
+    z-index: 1;
+    right:0;
+    top:0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: 0.8s;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.overlay-content {
+    width: 80vh;
+    padding-top: 1vh;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* align-items: center; */
+}
+
+.addedBook-container{
+    width: 70vw;
+}
+
+.addedBook-list{
+    min-width: 30%;
+    list-style: none;
+}
+
+.added-book {
+    height: 4vh;
+    margin: 0.5rem;
+    background: white;
+    /* font-size: 1.5rem; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.added-book input{
+    width: 2vw;
+    margin-left: 1vh;
+    border: none;
+    padding: 0%;
+    outline: none;
+    font-size: small;
+    color:  rgba(55, 65, 65, 0.582);
+}
+
+.added-book > li:nth-child(2){
+    width: 50vw;
+    margin-left: 1vh;
+    border: none;
+    padding: 0%;
+    outline: none;
+    font-size: small;
+    color:  rgba(55, 65, 65, 0.582);;
+    flex:1;
+}
+
+.added-book > li:nth-child(3){        
+    width: 10vw;
+    margin-left: 1vh;
+    border: none;
+    padding: 0%;
+    outline: none;
+    font-size: small;
+    color:  rgba(55, 65, 65, 0.582);
+}
+
+.added-item {
+    width: 30vw;
+    padding: 0.5rem 0.5rem;
+}
+
+.trash-btn{
+    width: 4vw;
+    height: 3.4vh;
+    margin: 0.25vh;
+    border-radius: 5%;
+    background-color: rgb(242, 71, 57)!important; /* Set a background color */
+    color: white; /* Text color */
+    border: none;
+    outline: none;
+    font-size: small;
+    cursor: pointer;
+}
+
+.trash-btn:active{
+    
+    border: none;
+    outline: none;
+    background:white ;
+    color: rgba(131, 58, 32, 0.925) ;
+}
+
+.fa-trash   {
+    pointer-events: none;
+}
+
+.checkout-container{
+    width: 70vw;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+}
+#finalPrice{
+    height: 5vh;
+    background-color: white;
+    padding: 1vh 1vh 1vh 1vh;
+    margin-left: 1vh;
+    border-radius: 4%;
+}
+#checkOut{
+    width: 20%;
+    height: 5vh;
+    border-radius: none!important;
+    padding: 1vh!important;
+    margin-right: 1vh;
+    outline: none;
+    border: none;
+    outline: none;
+}
+
+
+.closebtn {
+    width: 8vh;
+    height: 8vh;
+    position: absolute;
+    text-align: center;
+    padding-bottom:11vh;
+    bottom:0;
+    right:0;
+    font-size: 50px;
+    text-decoration: none;
+    color: rgb(199, 236, 236);
+}
+
+.closebtn:hover {
+    color:  rgb(242, 71, 57);
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    height: 6vh;
+}
+
+/* ----------------------------------iphone---------------------------- */
+
+@media all and (max-width: 800px) , screen and (max-height: 568px) {
+
+        
+    .homeIntro{
+        height: 96vh;
+    }
+    
+    .homeBooks{
+        flex-wrap: wrap;
+    }
+    
+    .homeBook{  
+        width: 18vw;
+    }
+    .productPage{
+        width: 100%;
+        padding-top:6vh;
+        height: 100%;
+    
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .productsIntro{
+        height: 96vh;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+       
+    
+    .cartBook{
+        width: 98vw;    
+    }
+    .cartBook img{
+        display: none;
+    }
+    
+    .cartBookText{
+        padding: 1vh;
+        text-align: center;
+    }
+    
+    /* About page */
+    
+    
+    .aboutPage{
+        
+        width: 100%;
+        padding-top:6vh;
+        height: 100%;
+    
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .aboutIntro{
+        width: 100%;
+        height: 12vh;
+        text-align: center; 
+    
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .aboutUs{
+        width: 100%;
+    }
+    
+    #about-bg-img{
+        height: 60vh;
+        border-radius: 0px;
+        font-size:25px;
+    }
+
+    
+      /*-------------CART-------------*/
+    
+    
+    
+    
+    .trash-btn{
+        width: 4vh;
+    }
+
+    #checkOut{
+        width: 10vh;
+        border-radius: none!important;
+        padding: 0vh!important;
+    }
+    
+    
+    .closebtn:hover {
+        color:  rgb(242, 71, 57);
+        text-decoration: none;
+    }
+    
+    footer{
+        width: 100%;
+        height: 6vh;
+    }
+
+
+}
