@@ -10,7 +10,7 @@ const checkOutPrice = document.querySelector(".fa-shopping-cart");
 
 
 //! Event Listeners
-document.addEventListener('DOMcontentLoaded', getTodos);
+// document.addEventListener("DOMContentLoaded", getLocalCart);
 productBook.addEventListener('click', addToCart);
 productBook.addEventListener('click', finalPrice);
 
@@ -23,13 +23,20 @@ checkOutPrice.addEventListener('click', finalPrice);
 //for open close the cart
 
 function openCart() {
-    document.getElementsByClassName('overlay')[0].style.height ="50%";
+    let mql = window.matchMedia('(max-width: 800px)');
+    console.log(mql)
+    if(mql.matches){
+        document.getElementsByClassName('overlay')[0].style.height ="100%";
+    }else{        
+        document.getElementsByClassName('overlay')[0].style.height ="50%";
+    }
+    
 }
-
 
 function closeCart() {
     document.getElementsByClassName('overlay')[0].style.height ="0%";
 }
+
 
 
 
@@ -58,74 +65,107 @@ function topFunction() {
 
 // function gia na ftiaxw to cart
 
+let countBooks = 0;
+let counter = 0;
+
+    
+
 
 function addToCart(event){
-    console.log('hello');
+    
     event.preventDefault(); // για να μην αννανεωνεται η σελιδα
-
     const item = event.target;
+    
     // kanw to sygkekrimeno elegxo wste na trexoun oi parakatw entoles mono otan h klasi sto event target einai addToCart diladi to button pou exw orisei
     if(item.classList[0] === "addToCart"){
-    // console.log(item);
-    //making a div with class added book
-    const addBook = document.createElement('div');    
-    addBook.classList.add('added-book');
-    // making an input to check the quantity
-    const addQuan = document.createElement('input');
-    addQuan.classList.add('add-Quantity');
-    addQuan.type ="number";
-    addQuan.min = '0';
-    addQuan.max = '5';
-    addQuan.value = '1';
-    addBook.appendChild(addQuan);
-
-    //making a li to put in the title
-    const title = document.createElement('li');
-    title.classList.add('added-item');    
-    
-    //making a li to put in the price
-    const price = document.createElement('li');
-    price.classList.add('added-item');
-    
-    // if (item.classList[0] === 'addToCart') {
-        
-        console.log(item);
         //!prosoxi sta kena metaxu twn epilogwn stin html. An uparxei keno metaxu twn elements dinei undefined
         const titleFinder = item.parentElement.firstChild.innerHTML;
         const priceFinder = item.previousSibling.innerHTML;
 
-        console.log(titleFinder);
-        console.log(priceFinder);
+        let i;
+        for(i=0; i<countBooks; i++){
+            if(titleFinder === document.getElementsByClassName("added-book")[i].firstChild.nextSibling.innerHTML){
+                let w = parseFloat(document.getElementsByClassName("add-Quantity")[i].value) + 1;
+                document.getElementsByClassName("add-Quantity")[i].value = w;
+                counter++;
+            }
+        }
 
-        title.innerText = titleFinder;
-        price.innerText = priceFinder;
-    // }    
-    // prosthetw to li me ton titlo sto div
-    addBook.appendChild(title);
-    // prosthetw to li me tin timi sto div
-    addBook.appendChild(price);
-//! save value (gia kathe neo item pou kanoume local)
-    saveLocalCart(title.innerText);
-    
-    saveLocalCart(price.innerText);
+        if(counter === 0){    
 
-    
-    // making a thrash button and put it inside the div
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML ='<i class="fas fa-trash"></i>';
-    trashButton.classList.add('trash-btn');
-    addBook.appendChild(trashButton);
-    
-    // const newAdd = document.getElementById("addedBook-list");
-    // newAdd.appendChild(addBook);
-    document.getElementById("addedBook-list").appendChild(addBook);
+            //making a div with class added book
+            const addBook = document.createElement('div');    
+            addBook.classList.add('added-book');
+
+            // making an input to check the quantity
+            const addQuan = document.createElement('input');
+            addQuan.classList.add('add-Quantity');
+            addQuan.type ="number";
+            addQuan.min = '0';
+            addQuan.max = '5';
+            addQuan.value = '1';
+            addBook.appendChild(addQuan);
+
+            //making a li to put in the title
+            const title = document.createElement('li');
+            title.classList.add('added-item');    
+            
+            //making a li to put in the price
+            const price = document.createElement('li');
+            price.classList.add('added-item');
+            
+
+                title.innerText = titleFinder;
+                price.innerText = priceFinder;
+            
+            // prosthetw to li me ton titlo sto div
+            addBook.appendChild(title);
+            // prosthetw to li me tin timi sto div
+            addBook.appendChild(price);
+            //! save value (gia kathe neo item pou kanoume local)
+            saveLocalCart(title.innerText);
+            
+            saveLocalCart(price.innerText);
+
+            
+            // making a thrash button and put it inside the div
+            const trashButton = document.createElement('button');
+            trashButton.innerHTML ='<i class="fas fa-trash"></i>';
+            trashButton.classList.add('trash-btn');
+            addBook.appendChild(trashButton);
+            
+            // const newAdd = document.getElementById("addedBook-list");
+            // newAdd.appendChild(addBook);
+            document.getElementById("addedBook-list").appendChild(addBook);
+            
+            countBooks++;
+        }
+        else{
+            counter--;
+        }
         
-}
+        
+    }
+    
+    // console.log(document.getElementsByClassName("added-book")[countBooks]);
+
+
+    // let y=x.firstChild.nextSibling.innerHTML;
+
+    
+    // console.log(x)
+
+
+    // console.log(document.getElementsByClassName("trash-btn")[countBooks].previousSibling);
+    // console.log(document.getElementById("addedBook-list").querySelectorAll("li.added-book").length);
+    // let x = document.getElementsByClassName("added-book")[countBooks].firstChild.nextSibling.innerHTML;
+
+    console.log(countBooks);
+
 }
 
 function deleteBook(event) {
-    // console.log(event.target);
-
+    
     // Σε αυτη τη συναρτηση με το event.target εντοπιζουμε με το κλικ το 
     // ελεμεντ που πειραζει ο χρηστης
     const item = event.target;
@@ -146,16 +186,19 @@ function deleteBook(event) {
         const addedBook = item.parentElement;
         // kai to kanoume remove me tin remove()
         addedBook.remove();    
-        
+        countBooks--;
     }
 }
+
+
+
 var sumPrice = 0;
 
 function finalPrice(event){
 
     const shopAction = event.target;
     
-    console.log(sumPrice);
+    // console.log(sumPrice);
 
     if (shopAction.classList[0] === 'addToCart') {
 
@@ -163,8 +206,8 @@ function finalPrice(event){
 
         addPrice = parseFloat(priceFinder) ;
 
-        console.log(shopAction);
-        console.log(addPrice);
+        // console.log(shopAction);
+        // console.log(addPrice);
         sumPrice = sumPrice + addPrice;
 
         
@@ -172,17 +215,19 @@ function finalPrice(event){
     if (shopAction.classList[0] === 'trash-btn') {
         
         const priceFinder = shopAction.previousSibling.innerHTML;
+        const quantityFinder = shopAction.parentElement.firstChild.value;
    
-        subPrice = parseFloat(priceFinder) ;        
+        subPrice = parseFloat(priceFinder) ; 
+        quantity = parseFloat(quantityFinder);       
 
-        console.log(shopAction);        
-        console.log(subPrice);
-        sumPrice = sumPrice - subPrice;
+        // console.log(shopAction);        
+        // console.log(subPrice);
+        sumPrice = sumPrice - subPrice*quantity;
     }
 
     document.getElementById('finalPrice').innerHTML = ("Subtotal: "+sumPrice+"€");
 
-    console.log(sumPrice);
+    // console.log(sumPrice);
 }
 
 
@@ -202,19 +247,85 @@ function saveLocalCart(addedBook){
 }
 
 
-function getTodos(){
-    let addedBooks;
+// function getLocalCart(){
+//     let addedBooks;
+    
+//     // console.log(JSON.parse(localStorage.getItem('addedBooks')));
+//     if(localStorage.getItem('addedBooks') === null){
+//         addedBooks = [];
+//     }
+//     else{
+//         addedBooks =  JSON.parse(localStorage.getItem('addedBooks'));
+//     }
 
-    if(localStorage.getItem('addedBooks') === null){
-        addedBooks = [];
-    }
-    else{
-        addedBooks =  JSON.parse(localStorage.getItem('addedBooks'));
-    }
-    addedBooks.push(addedBook);
 
-    localStorage.setItem('addedBooks', JSON.stringify(addedBooks));
-}
+//     addedBooks.forEach(function(addedBook) {
+
+//         //!prosoxi sta kena metaxu twn epilogwn stin html. An uparxei keno metaxu twn elements dinei undefined
+//         // const titleFinder = item.parentElement.firstChild.innerHTML;
+//         // const priceFinder = item.previousSibling.innerHTML;
+        
+//         let i;
+//         for(i=0; i<addedBooks.length; i++){
+//             // console.log(addedBooks);
+//         }
+
+        
+    
+//         // console.log(titleFinder);
+//         // console.log(priceFinder);
+//         // console.log(addedBookList)
+//         // console.log('no')
+    
+//         // document.querySelector("#addedBook-list > div > li:nth-child(2)")
+//         // document.querySelector("#addedBook-list > div")
+        
+//         //making a div with class added book
+//         const addBook = document.createElement('div');    
+//         addBook.classList.add('added-book');
+//         // making an input to check the quantity
+//         const addQuan = document.createElement('input');
+//         addQuan.classList.add('add-Quantity');
+//         addQuan.type ="number";
+//         addQuan.min = '0';
+//         addQuan.max = '5';
+//         addQuan.value = '1';
+//         addBook.appendChild(addQuan);
+    
+//         //making a li to put in the title
+//         const title = document.createElement('li');
+//         title.classList.add('added-item');    
+        
+//         //making a li to put in the price
+//         const price = document.createElement('li');
+//         price.classList.add('added-item');
+        
+    
+//             title.innerText = titleFinder;
+//             price.innerText = priceFinder;
+//         // }    
+//         // prosthetw to li me ton titlo sto div
+//         addBook.appendChild(title);
+//         // prosthetw to li me tin timi sto div
+//         addBook.appendChild(price);
+//     //! save value (gia kathe neo item pou kanoume local)
+//         saveLocalCart(title.innerText);
+        
+//         saveLocalCart(price.innerText);
+    
+        
+//         // making a thrash button and put it inside the div
+//         const trashButton = document.createElement('button');
+//         trashButton.innerHTML ='<i class="fas fa-trash"></i>';
+//         trashButton.classList.add('trash-btn');
+//         addBook.appendChild(trashButton);
+        
+//         // const newAdd = document.getElementById("addedBook-list");
+//         // newAdd.appendChild(addBook);
+//         document.getElementById("addedBook-list").appendChild(addBook);
+
+//     });
+// }
 
 
 
