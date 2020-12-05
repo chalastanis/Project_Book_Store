@@ -422,7 +422,7 @@ input[type=text], select, textarea {
     height: 3.4vh;
     margin: 0.25vh;
     border-radius: 5%;
-    background-color: rgb(242, 71, 57)!important; /* Set a background color */
+    background-color: rgb(199, 236, 236)!important; /* Set a background color */
     color: white; /* Text color */
     border: none;
     outline: none;
@@ -430,12 +430,16 @@ input[type=text], select, textarea {
     cursor: pointer;
 }
 
+.trash-btn:hover{
+    background-color: rgb(242, 71, 57)!important;
+}
+
 .trash-btn:active{
     
     border: none;
     outline: none;
-    background:white ;
-    color: rgba(131, 58, 32, 0.925) ;
+    background-color:white!important;
+    color: rgb(242, 71, 57) ;
 }
 
 .fa-trash   {
@@ -473,7 +477,7 @@ input[type=text], select, textarea {
     position: absolute;
     text-align: center;
     padding-bottom:11vh;
-    bottom:0;
+    bottom:20px;
     right:0;
     font-size: 50px;
     text-decoration: none;
@@ -483,6 +487,11 @@ input[type=text], select, textarea {
 .closebtn:hover {
     color:  rgb(242, 71, 57);
     text-decoration: none;
+}
+
+.closebtn:active {
+    color: rgb(199, 236, 236);
+    font-size: 60px;
 }
 
 footer{
